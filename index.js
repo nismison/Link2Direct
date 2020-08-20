@@ -4,8 +4,8 @@
 // @version      0.1
 // @description  知乎/简书链接转换为直链
 // @author       Nismison
-// @match        https://www.zhihu.com/*
-// @match        https://www.jianshu.com/*
+// @match        https://*.zhihu.com/*
+// @match        https://*.jianshu.com/*
 // ==/UserScript==
 
 function getQueryVariable(url, variable) {
@@ -22,8 +22,8 @@ function getQueryVariable(url, variable) {
 
 (function() {
   'use strict';
-  const curUrl = window.location.href
-  if (curUrl.includes('https://www.jianshu.com')) {
+  const curUrl = window.location.host
+  if (curUrl.includes('jianshu.com')) {
     // 简书
     const links = document.querySelectorAll("a[href^='https://link.jianshu.com?t=']")
     for (let i = 0; i < links.length; i++) {
@@ -31,7 +31,7 @@ function getQueryVariable(url, variable) {
       const unescapeUrl = unescape(params)
       if (unescapeUrl) links[i].href = unescapeUrl
     }
-  } else if (curUrl.includes('https://www.zhihu.com')) {
+  } else if (curUrl.includes('zhihu.com')) {
     // 知乎
     const links = document.querySelectorAll("a[href^='https://link.zhihu.com/?target=']")
     for (let i = 0; i < links.length; i++) {
