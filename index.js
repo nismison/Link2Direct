@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Link2Direct
 // @namespace    https://github.com/nismison
-// @version      0.1
+// @version      0.2
 // @description  知乎/简书链接转换为直链
 // @author       Nismison
 // @match        https://*.zhihu.com/*
